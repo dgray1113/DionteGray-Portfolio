@@ -1,0 +1,11 @@
+# Script: List-DirectoryFiles.ps1
+# Description: Lists all files in the current directory
+
+# Get and display files
+$files = Get-ChildItem -Path . -File
+if ($files) {
+    Write-Host "Files in current directory:" -ForegroundColor Cyan
+    $files | Format-Table Name, LastWriteTime, Length
+} else {
+    Write-Host "No files found in the current directory." -ForegroundColor Red
+}
